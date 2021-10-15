@@ -21,26 +21,26 @@ C'est également nécessaire en travaillant à plusieurs sur un projet.
 
 ### Vérifier l'environnement utilisé
 1. Dans la liste "EXPLORER" à gauche de l'écran, sélectionner le fichier "examples/hello/hello.py"
-1. Vérifier dans la barre d'état en bas à gauche que l'environnement est bien "Python 3.8.X XX-bit ('l1-python': conda)"
-    * si ce n'est pas le cas, sélectionner l'interpréteur Python 3.8 dans l'environnement l1-python "Python 3.8.X XX-bit ('l1-python': conda)" en cliquant en bas à gauche dans la barre d'état ou *Ctrl+Shift+P* puis sélectionner "Python: Select Interpreter")
+1. Vérifier dans la barre d'état en bas à gauche que l'environnement est bien "Python 3.9.X XX-bit ('l1-python': conda)"
+    * si ce n'est pas le cas, sélectionner l'interpréteur Python 3.9 dans l'environnement l1-python "Python 3.9.X XX-bit ('l1-python': conda)" en cliquant en bas à gauche dans la barre d'état ou *Ctrl+Shift+P* puis sélectionner "Python: Select Interpreter")
 
 ### Exécuter un programme
 * Hello
   1. Dans la liste "EXPLORER" à gauche de l'écran, ouvrir `examples/hello/hello.py`
-  1. Cliquer sur le triangle vert en haut à droite de la fenêtre de l'éditeur Python
+  1. Cliquer sur le triangle gris en haut à droite de la fenêtre de l'éditeur Python
 * explot (test de `matplotlib`)
   1. Dans la liste "EXPLORER" à gauche de l'écran, ouvrir `examples/explot/explot.py`
-  1. Cliquer sur le triangle vert en haut à droite de la fenêtre de l'éditeur Python
+  1. Cliquer sur le triangle gris en haut à droite de la fenêtre de l'éditeur Python
 * Kata _Fizzbuzz_ (avec tests unitaires)
   1. Dans la liste "EXPLORER" à gauche de l'écran, ouvrir `examples/fizzbuzz/test_fizzbuzz.py` ou `examples/fizzbuzz/fizzbuzz.py`
-  1. Cliquer sur le triangle vert en haut à droite de la fenêtre de l'éditeur Python
+  1. Cliquer sur le triangle gris en haut à droite de la fenêtre de l'éditeur Python
 * Interface graphique (test de `tkinter`)
   1. Dans la liste "EXPLORER" à gauche de l'écran, ouvrir `examples/gui/example01.py`, `examples/gui/example02.py` ou `examples/gui/example03.py`
-  1. Cliquer sur le triangle vert en haut à droite de la fenêtre de l'éditeur Python
+  1. Cliquer sur le triangle gris en haut à droite de la fenêtre de l'éditeur Python
 * Notebook Jupyter
   1. Dans la liste "EXPLORER" à gauche de l'écran, ouvrir `examples/exjupyter/exjupyter.ipynb`
-  1. Sélectionner l'interpréteur Python "Python 3.8.X XX-bit ('l1-python': conda)" en haut à droite de la fenêtre du notebook
-  1. Cliquer sur les deux petits triangles (*Run all cells*) à gauche de la barre d'icones du notebook
+  1. En haut à droite de la fenêtre du notebook, cliquer sur "Select Kernel" et choisir "Python 3.9.X XX-bit ('l1-python': conda)" 
+  1. Cliquer sur les deux petits triangles (*Run All*) à gauche de la barre d'icones du notebook
 
 ### Faire un exercice
 1. Dans le répertoire `exercises`, ouvrir le `README.md` de l'exercice à faire (par exemple, [exercises/hello/README.md](exercises/hello/README.md))
@@ -48,9 +48,9 @@ C'est également nécessaire en travaillant à plusieurs sur un projet.
 1. Répondre aux questions en créant ou en complétant les fichiers de ce répertoire (dans l'exemple, compléter [exercises/hello/hello.py](exercises/hello/hello.py))
 
 ### Faire un exercice dans un notebook
-Il suffit pour cela d'ouvrir le notebook contenant l'exercice (par exemple [exercises\exjupyter\exjupyter.ipynb](exercises\exjupyter\exjupyter.ipynb)) et de compléter directement le notebook.
+Il suffit pour cela d'ouvrir le notebook contenant l'exercice (par exemple [exercises\exjupyter\exjupyter.ipynb](exercises\exjupyter\exjupyter.ipynb)) et de compléter directement le notebook. A la première ouverture d'un notebook, il faut cliquer sur "Select Kernel" en haut à droite de la fenêtre et choisir "Python 3.9.X XX-bit ('l1-python': conda)".
 
-### Sauvegarder les changements sur son compte `github`
+### Sauvegarder les changements sur son compte `github` (via l'interface graphique VSCode)
 Cette procédure vous permettra de conserver vos modifications entre les séances en les sauvegardant sur `github`.
 
 1. Cliquer sur l'icone en forme de graphe à 3 noeuds à gauche de l'écran (*Source Control* ou *Ctrl+Shift+G*)
@@ -93,15 +93,12 @@ Elle va permettre de mettre à jour votre copie locale du projet à partir du d�
     ```
 1. Intégrer la branche principale de `upstream` à la branche locale
     ```bash
-    git rebase upstream/master
+    git merge -Xtheirs upstream/master
     ```
 1. Envoyer les modifications vers votre dépôt `github`
     ```bash
     git push -f origin master
     ```
-
-##### Remarque
-* La commande `rebase` ci-dessus modifie l'historique du projet. Si d'autres clones existent (sur une autre machine par exemple), il sera nécessaire de les supprimer et de les cloner à nouveau.
 
 ### Activation de l'environnement
 Il est nécessaire d'activer l'environnement du projet pour avoir accès à la version adéquat de Python ainsi qu'à toutes les bibliothèques.
@@ -147,7 +144,7 @@ flake8 examples/fizzbuzz/fizzbuzz.py
 mypy examples/fizzbuzz/fizzbuzz.py
 ```
 
-### Sauvegarder les changements sur son compte `github`
+### Sauvegarder les changements sur son compte `github` (via le terminal)
 Cette procédure vous permettra de conserver vos modifications entre les séances en les sauvegardant sur `github`.
 
 1. Afficher la liste des fichiers modifiés ou ajoutés

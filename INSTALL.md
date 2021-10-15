@@ -233,17 +233,23 @@ Cette étape précise à VSCode quel *shell* utiliser pour le terminal.
 ### Créer l'environnement Python du projet
 Pour isoler l'environnement du projet d'éventuelles autres versions de Python ou de bibliothèques, nous allons créer un environnement `conda` spécifique.
 
-1. Dans VSCode, après s'être assuré que le répertoire du projet est ouvert, ouvrir un terminal (menu *Terminal/New Terminal* ou *View/Terminal*)
-    * sous Windows, `conda` n'est pas accessible dans le "Command Prompt"; pour palier ce problème, il faut personnaliser le paramètre `terminal.integrated.shellArgs.windows` de VSCode (*Ctrl ,* (Ctrl et virgule en même temps), rechercher "terminal.integrated.profiles.windows", cliquer sur "Edit in settings.json"). Par exemple (**adapter les chemins selon l'installation de miniconda**) :
-        ``` 
-        "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-        "args": [
-                "/K",
-                "C:\\Users\\moi\\miniconda3\\Scripts\\activate.bat C:\\Users\\moi\\miniconda3"
-            ]
-        ```
-    * une autre option sous Windows est de lancer VSCode à partir d'un "Anaconda prompt"
-1. Taper (Il faut garder sa connexion internet pendant la création de l'environnement)
+* Sous Windows, `conda` n'est pas accessible dans le "Command Prompt". Pour palier ce problème, faire *Ctrl ,* (Ctrl et virgule en même temps), rechercher "terminal.integrated.profiles.windows" et cliquer sur "Edit in settings.json".
+    Modifier le contenu de la partie Command Prompt en remplissant "args" comme ceci :
+    ```json
+    "Command Prompt": {
+      "path": [
+          "${env:windir}\\Sysnative\\cmd.exe",
+          "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args":["/K", "C:\\Users\\VOTRENOMDUTILISATEUR\\miniconda3\\Scripts\\activate.bat C:\\Users\\VOTRENOMDUTILISATEUR\\miniconda3"],
+      "icon": "terminal-cmd"
+    },
+    ```
+    **Remplacer VOTRENOMDUTILISATEUR par le nom de votre utilisateur.**
+    Si le répertoire par défaut pour installer miniconda n'a pas été choisi, adapter le chemin d'installation.
+    Enfin, utiliser *File/Save* ou Ctrl+S pour sauvegarder vos modifications puis fermer l'onglet settings.json.
+1. Sous Windows, Mac et Linux s'assurer que le répertoire du projet est ouvert dans VSCode puis ouvrir un terminal (menu Terminal/New Terminal ou View/Terminal).
+    Taper (Il faut garder sa connexion internet pendant la création de l'environnement)
     ```bash
     conda env create
     conda activate l1-python
