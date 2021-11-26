@@ -10,7 +10,7 @@ def afficheTemps(temps):
     affiche(temps[2], "minute")
     affiche(temps[3], "seconde")
     print()
-    
+
 def tempsEnSeconde(temps):
     return ((temps[0]*24*3600)+(temps[1]*3600)+(temps[2]*60)+temps[3])
 
@@ -66,7 +66,7 @@ def sommeTemps(temps1,temps2):
     return secondeEnTemps(t)
     
     
-    def demandeTemps():
+def demandeTemps():
     while True:
          jours = int(input("jours?"))
          heures = int(input("heures?"))
@@ -149,3 +149,32 @@ def afficheDate(date = -1):
     annee, jour, heure, minute, seconde = date 
     temps = (jour, heure, minute, seconde)
     afficheTemps(temps)
+
+def bisextile(jour):
+année = 1970
+while jour > 0:
+    if année % 4 == 0 and année % 100 != 0 and année % 400 != 0:
+        jour -= 366
+        print("l'année est bisextile", année)
+    else:
+        jour -= 365
+    année += 1
+        
+bisextile(20000)
+
+def nombreBisextile(jour):
+    année = 1970
+    b = 0
+    while jour > 0:
+        if année % 4 == 0 and année % 100 != 0 and année % 400 != 0:
+            jour = jour - 366  # c est la meme chose que jour -= 366
+            b = b + 1 #compteur
+        else:
+            jour -= 365
+        année += 1
+    return b
+
+
+def tempsEnDateBisextile(temps):
+    jour, heure, minute, seconde = temps
+    return tempsEnDate((jour - nombreBisextile(jour), heure, minute, seconde))
