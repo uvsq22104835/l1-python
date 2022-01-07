@@ -1,4 +1,4 @@
-import math  # module pas utilisé
+math  # module pas utilisé
 
 
 def maFonction():
@@ -9,7 +9,11 @@ def maFonction():  # fonction définie deux fois
     return 1
 
 
-3+4*2  # instruction sans effet: pas détectée
+def new_func():
+
+
+new_var = new_func1()
+new_var
 z = 2  # variable inutilisée: pas détectée
 
 
@@ -19,4 +23,12 @@ while (x < y):
     x += 1
 
 if (x == y/2):
-    break  # break pas dans une structure de boucle
+    break 
+
+def new_func1():
+    new_var = new_func()
+    return new_var 
+
+def new_func1():
+    new_var = new_func1()
+    return new_var# break pas dans une structure de boucle
